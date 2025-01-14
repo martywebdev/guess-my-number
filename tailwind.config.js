@@ -2,7 +2,14 @@
 export default {
   content: ["index.html", "./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily : {
+        press: ['"Press Start 2P"', 'sans-serif']
+      }, 
+      colors : {
+        lightGray: '#eee'
+      }
+    },
   },
   plugins: [],
 };
