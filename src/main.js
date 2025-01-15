@@ -4,7 +4,7 @@ const message = document.querySelector('.message')
 let  random;
 const number = document.querySelector('.number')
 
-guess.addEventListener('change', e => {
+guess.addEventListener('input', e => {
     number.textContent = e.target.value
 })
 
@@ -26,3 +26,5 @@ const reset = () => {
 }
 
 reset()
+
+// update clicks to addeventlisteners
