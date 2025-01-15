@@ -15,14 +15,18 @@ guess.addEventListener('input', e => {
 const check = () => {
     console.log(random);  // For debugging purposes
     const userGuess = Number(guess.value);
-    
-    if (userGuess < random) {
-        message.textContent = 'Higher';
-    } else if (userGuess > random) {
-        message.textContent = 'Lower';
-    } else if (userGuess === random) {
-        message.textContent = '🎉Correct Number';
+    if (!userGuess) {
+        message.textContent = '🎈No Number';
+    } else {
+        if (userGuess < random) {
+            message.textContent = 'Higher';
+        } else if (userGuess > random) {
+            message.textContent = 'Lower';
+        } else if (userGuess === random) {
+            message.textContent = '🎉Correct Number';
+        }
     }
+    
 };
 
 const reset = () => {
