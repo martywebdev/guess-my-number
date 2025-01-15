@@ -11,13 +11,14 @@
     <header class="relative h-[35vh] border-b-[7px] border-b-lightGray">
       <h1 class="text-[4rem] text-center absolute w-full top-[52%] left-1/2 transform -translate-x-1/2 py-12 -translate-y-1/2">Guess My Number!</h1>
       <p class="between text-[1.4rem] absolute top-8 right-8">(Between 1 and 20)</p>
-      <button class="btn again absolute top-8 left-8">Again!</button>
+      <button class="btn again absolute top-8 left-8" >Again!</button>
       <div class="number bg-[#eee] text-[#333] text-6xl w-[15rem] py-12 text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">?</div>
     </header>
     <main class="h-[65vh] text-lightGray flex items-center justify-around">
       <section class="left w-[52rem] flex flex-col items-center">
         <input type="number" class="guess bg-transparent border-4 border-lightGray text-inherit text-[5rem] p-[2.5rem] w-[25rem] text-center block mb-12" />
-        <button class="btn check">Check!</button>
+        
+        <button class="btn check" onclick="check()">Check!</button>
       </section>
       <section class="right w-[52rem] text-[2rem]">
         <p class="message mb-12">Start guessing...</p>
