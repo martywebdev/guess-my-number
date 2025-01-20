@@ -8,7 +8,6 @@ const highScore = document.querySelector(".highscore");
 
 let random;
 let userScore;
-let gameWon;
 
 const updateMessage = (msg) => (message.textContent = msg);
 
@@ -47,7 +46,6 @@ const check = () => {
       highScore.textContent = userScore;
     }
 
-    gameWon = true;
     checkBtn.disabled = true;
     updateStyles(["bg-green-500"], ["bg-[#222]"]);
     updateNumberStyles(["w-[30rem]"], ["w-[15rem]"]);
@@ -61,7 +59,6 @@ const reset = () => {
   number.textContent = "?";
   updateMessage("");
   userScore = 20;
-  gameWon = false;
   score.textContent = userScore;
   random = Math.floor(Math.random() * 20) + 1;
 
