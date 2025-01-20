@@ -4,44 +4,53 @@ const number = document.querySelector(".number");
 const checkBtn = document.querySelector(".check");
 const resetBtn = document.querySelector(".again");
 const score = document.querySelector(".score");
+const highScore = document.querySelector(".highscore");
 
 let random;
-let userScore = Number(score.textContent);
+let userScore;
+let gameWon;
 
-guess.addEventListener("input", (e) => {});
+const updateMessage = (msg) => (message.textContent = msg);
+
+const updateStyles = (toAdd, toRemove) => {
+  document.body.classList.remove(...toRemove);
+  document.body.classList.add(...toAdd);
+};
+
+const updateNumberStyles = (toAdd, toRemove) => {
+  number.classList.remove(...toRemove);
+  number.classList.add(...toAdd);
+};
 
 const check = () => {
-  console.log(random); // For debugging purposes
   const userGuess = Number(guess.value);
 
   if (userScore < 1) {
-    message.textContent = "🔴You lose!";
+    updateMessage("🔴You lose!");
     return;
   }
 
   if (!userGuess) {
-    message.textContent = "🎈No Number";
+    updateMessage("🎈No Number");
+    userScore--;
+  } else if (userGuess < random) {
+    updateMessage("Too Low");
+    userScore--;
+  } else if (userGuess > random) {
+    updateMessage("Too high");
     userScore--;
   } else {
-    if (userGuess < random) {
-      message.textContent = "Too Low";
-      userScore--;
-    } else if (userGuess > random) {
-      message.textContent = "Too high";
-      userScore--;
-    } else if (userGuess === random) {
-      message.textContent = "🎉Correct Number";
-      number.textContent = random;
+    updateMessage("🎉Correct Number");
+    number.textContent = random;
 
-      //add score
-      // vanilla js
-      // document.body.style.backgroundColor = "green";
-      //tailwind
-      document.body.classList.remove("bg-[#222]"); // Remove the existing background color class
-      document.body.classList.add("bg-green-500");
-      number.classList.remove("w-[15rem]");
-      number.classList.add("w-[30rem]");
+    if (userScore > Number(highScore.textContent)) {
+      highScore.textContent = userScore;
     }
+
+    gameWon = true;
+    checkBtn.disabled = true;
+    updateStyles(["bg-green-500"], ["bg-[#222]"]);
+    updateNumberStyles(["w-[30rem]"], ["w-[15rem]"]);
   }
 
   score.textContent = userScore;
@@ -50,19 +59,19 @@ const check = () => {
 const reset = () => {
   guess.value = "";
   number.textContent = "?";
-  message.textContent = "";
-  score.textContent = "20";
-  document.body.classList.remove("bg-green-500");
-  document.body.classList.add("bg-[#222]");
+  updateMessage("");
+  userScore = 20;
+  gameWon = false;
+  score.textContent = userScore;
   random = Math.floor(Math.random() * 20) + 1;
-  number.classList.add("w-[15rem]");
-  number.classList.remove("w-[30rem]");
+
+  checkBtn.disabled = false;
+  updateStyles(["bg-[#222]"], ["bg-green-500"]);
+  updateNumberStyles(["w-[15rem]"], ["w-[30rem]"]);
 };
 
 reset();
 
-// Trigger the check function when the Check button is clicked
 checkBtn.addEventListener("click", check);
 
-// Trigger the reset function when the Reset button is clicked
 resetBtn.addEventListener("click", reset);
