@@ -8,24 +8,22 @@
     <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body class="font-press text-lightGray bg-[#222]">
-    <header class="relative h-[35vh] border-b-[7px] border-b-lightGray">
-      <h1 class="text-[4rem] text-center absolute w-full top-[52%] left-1/2 transform -translate-x-1/2 py-12 -translate-y-1/2">Guess My Number!</h1>
-      <p class="between text-[1.4rem] absolute top-8 right-8">(Between 1 and 20)</p>
-      <button class="btn again absolute top-8 left-8" >Again!</button>
-      <div class="number bg-[#eee] text-[#333] text-6xl w-[15rem] py-12 text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">?</div>
+    <header class="relative h-[35vh] border-b-[7px] border-b-lightGray flex flex-col items-center">
+      <h1 class="text-[2rem] md:text-[3rem] lg:text-[4rem] text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">Guess My Number!</h1>
+      <p class="text-[1rem] md:text-[1.2rem] lg:text-[1.4rem] absolute top-4 md:top-6 lg:top-8 right-4 md:right-6 lg:right-8">(Between 1 and 20)</p>
+      <button class="btn again absolute top-4 md:top-6 lg:top-8 left-4 md:left-6 lg:left-8">Again!</button>
+      <div class="number bg-[#eee] text-[#333] text-4xl md:text-5xl lg:text-6xl w-[10rem] md:w-[12rem] lg:w-[15rem] py-8 md:py-10 lg:py-12 text-center absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">?</div>
     </header>
-    <main class="h-[65vh] text-lightGray flex items-center justify-around">
-      <section class="left w-[52rem] flex flex-col items-center">
-        <input onkeydown="return false" max="20" min="0" type="number" class="guess bg-transparent border-4 border-lightGray text-inherit text-[5rem] p-[2.5rem] w-[25rem] text-center block mb-12" />
+    <main class="h-[65vh] text-lightGray flex flex-col lg:flex-row items-center justify-around p-4 lg:p-8">
+      <section class="left w-full lg:w-[52rem] flex flex-col items-center mb-8 lg:mb-0">
+        <input onkeydown="return false" max="20" min="0" type="number" class="guess bg-transparent border-4 border-lightGray text-inherit text-[2rem] md:text-[3rem] lg:text-[5rem] p-4 md:p-6 lg:p-[2.5rem] w-[15rem] md:w-[20rem] lg:w-[25rem] text-center block mb-6 md:mb-8 lg:mb-12" />
         
         <button class="btn check">Check!</button>
       </section>
-      <section class="right w-[52rem] text-[2rem]">
-        <p class="message mb-12">Start guessing...</p>
-        <p class="label-score mb-8">💯 Score: <span class="score">20</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
-        </p>
+      <section class="right w-full lg:w-[52rem] text-[1rem] md:text-[1.5rem] lg:text-[2rem]">
+        <p class="message mb-4 md:mb-8 lg:mb-12">Start guessing...</p>
+        <p class="label-score mb-4 md:mb-6 lg:mb-8">💯 Score: <span class="score">20</span></p>
+        <p class="label-highscore">🥇 Highscore: <span class="highscore">0</span></p>
       </section>
     </main>
     <script src="src/main.js"></script>
