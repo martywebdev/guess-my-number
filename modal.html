@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Modal</title>
+</head>
+<body class="font-sans text-[#333] leadin6 h-screen relative flex items-start justify-center bg-gradient-to-tl from-[#28b487] to-[#7dd56f]">
+    <button class="show-modal flex-shrink-0">Show modal 1</button>
+    <button class="show-modal flex-shrink-0">Show modal 2</button>
+    <button class="show-modal flex-shrink-0">Show modal 3</button>
+    <div class="modal hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] bg-white p-24 rounded-[5px] shadow-lg z-10"> 
+        <button class="close-modal absolute top-5 right-8 text-7xl text-[#333] cursor-pointer border-0 bg-none">&times;</button>
+        <h1 class="text-4xl mb-8">I'm a modal window 😍</h1>
+        <p class="text-2xl">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+          mollit anim id est laborum.
+        </p>
+      </div>
+      <div class="overlay hidden absolute top-0 left-0 w-full h-full bg-black/60 backdrop-blur-[3px] z-[5]"></div>
+  
+      <script src="src/modal.js"></script>
+</body>
+</html>
